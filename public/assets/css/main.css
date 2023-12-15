@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: normal;
+    gap: 20px;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.get-username {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-username p {
+    font-size: 30px;
+    margin: 0;
+}
+
+#username {
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid black;
+}
+
+#button-play {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+}
+
+.decor-container {
+    margin: 100px auto 0 auto;
+    border: 2px solid black;
+    height: 300px;
+    width: 800px;
+    position: relative;
+    display: flex;
+    order: 2;
+}
+
+.dino {
+    position: absolute;
+    background-image: url('../img/dino.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 9999;
+    bottom: 0;
+    left: 100px;
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black; */
+    transition: .15s;
+    animation: move .5s linear infinite;    
+
+    
+}
+
+
+.up {
+    transform: translateY(-120px);
+}
+
+.down {
+    background-image: url('../img/dino-duck.png');
+    width: 60px;
+    height: 30px;
+    animation: down .5s linear infinite;    
+    /* border: 1px solid black; */
+    /* background-color: burlywood; */
+}
+
+@keyframes down {
+    0% {
+        background-image: url('../img/dino-duck1.png');
+    }
+    
+    100% {
+        background-image: url('../img/dino-duck2.png');
+    }
+}
+
+.ground {
+    transform: translateY(0);
+    animation: move .5s linear infinite;    
+}
+
+@keyframes move {
+    0% {
+        background-image: url('../img/dino-run1.png');
+    }
+
+    100% {
+        background-image: url('../img/dino-run2.png');
+    }
+}
+
+.obstacle-container {
+    align-self: flex-end;
+
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    
+}
+
+.obstacle-layer {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('../img/track.png');
+    background-repeat: repeat-x;
+    background-position-y: bottom;
+    background-size: auto;
+    /* gap: 300px; */
+    
+}
+
+.obstacle {
+    z-index: 9999;
+    /* border: 1px solid black; */
+    flex-shrink: 0;
+    transform: translateX(1000px);
+    /* background-color: chartreuse; */
+}
+
+.obstacle-regular {
+    background-image: url('../img/cactus.png');
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 45px;
+    margin: 0 250px;
+}
+
+.obstacle-large {
+    background-image: url('../img/cactus.png');
+    background-size: contain;
+    background-position: center;
+    width: 60px;
+    height: 45px;
+    margin: 0 300px;
+}
+
+.obstacle-bird {
+    background-image: url('../img/Pterodactyl.png');
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 45px;
+    margin: 40px 150px;
+    animation-name: fly; 
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fly {
+    0% {
+        background-image: url('../img/pterodactyl-down.png');
+    }
+    100% {
+        background-image: url('../img/Pterodactyl.png');
+    }
+}
+
+.play-game {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.score {
+    position: absolute;
+    margin: 0;
+    top: 20px;
+    right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.saved-scores-container {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: fit-content;
+    padding: 20px;
+    margin: 100px auto 0 auto;
+    border: 2px solid black;
+    order: 1;
+}
+
+
+.start-again {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.start-again p {
+    margin: 0;
+}
+
+.start-again i {
+    font-size: 20px;
+}
+
