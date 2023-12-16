@@ -275,7 +275,7 @@ function startAgain(username) {
         decorContainer.appendChild(div)
 
         document.addEventListener('keydown', function startAgainKeyDownEvent(e) {
-            if (e.code == 'Space' || e.key == 'ArrowUp') {
+            if (e.code == 'Space') {
                 document.body.innerHTML = '';
                 intervalsArray.forEach((interval) => {
                     clearInterval(interval)
