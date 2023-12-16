@@ -217,12 +217,14 @@ function displaySavedScores() {
 
     let savedScoresContent = document.getElementsByClassName('saved-scores-content').item(0)
     let savedScores = localStorage.getItem('scores')
-    scoresArray = JSON.parse(savedScores)
-    scoresArray.sort((a, b) => b.score - a.score);
-    scoresArray = scoresArray.slice(0, 5)
-    scoresArray.forEach((item) => {
-        savedScoresContent.insertAdjacentHTML('beforeend', item.scoreHTML)
-    })
+    if (savedScores != []) {
+        scoresArray = JSON.parse(savedScores)
+        scoresArray.sort((a, b) => b.score - a.score);
+        scoresArray = scoresArray.slice(0, 5)
+        scoresArray.forEach((item) => {
+            savedScoresContent.insertAdjacentHTML('beforeend', item.scoreHTML)
+        })
+    }
 
 
 }
