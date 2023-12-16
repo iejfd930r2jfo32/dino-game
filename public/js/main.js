@@ -269,7 +269,7 @@ function startAgain(username) {
         let div = document.createElement('div')
         div.classList.add('start-again')
         div.innerHTML = `
-            <p>Start again</p>
+            <p>Press Space to play again</p>
             <div><img src='./public/assets/img/reset.png' alt='restart'></div>
         `
         decorContainer.appendChild(div)
