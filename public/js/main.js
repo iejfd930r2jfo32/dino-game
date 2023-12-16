@@ -128,23 +128,56 @@ function moveObstacles() {
     let obstacleLayer = document.getElementsByClassName('obstacle-layer').item(0)
         let moveObstacleInterval = setInterval(function() {
             if (blockGame != true) {
-                if (playerScore < 200) {
+                if (playerScore <= 200) {
                     i+= 5     
-                } else if (playerScore > 200 && playerScore < 300) {
+                } else if (playerScore > 200 && playerScore <= 300) {
                     i+= 5.5
-                } else if (playerScore > 300 && playerScore < 400) {
+                } else if (playerScore > 300 && playerScore <= 400) {
                     i+= 6
-                } else if (playerScore > 400 && playerScore < 500) {
+                    flashDecor('add')
+                } else if (playerScore > 400 && playerScore <= 500) {
                     i+= 6.5
-                } else if (playerScore > 500 && playerScore < 800) {
-                    i+= 7                   
+                    flashDecor('remove')
+                    changeDecorBackground('black')
+                } else if (playerScore > 500 && playerScore <= 800) {
+                    i+= 7
                 } else {
                     i+= 8.5
+                    flashDecor('add')                   
+                    setTimeout(function() {
+                        flashDecor('remove')    
+                        changeDecorBackground('white')               
+                    }, 7000)
                 }
                 obstacleLayer.style.marginLeft = `-${i}px`
             }
         }, 10)
         intervalsArray.push(moveObstacleInterval)
+}
+
+function flashDecor(state) {
+    let decorContainer = document.getElementsByClassName('decor-container').item(0)
+    console.log("hello")
+    if (state == 'add') {
+        decorContainer.classList.add('flash-decor')
+    } else if (state == 'remove') {
+        decorContainer.classList.remove('flash-decor')
+    } else {
+        decorContainer.classList.toggle('flash-decor')
+    }
+}
+
+function changeDecorBackground(color) {
+    let decorContainer = document.getElementsByClassName('decor-container').item(0)
+    if (color == 'black') {
+        decorContainer.classList.add('decor-black')
+        decorContainer.classList.remove('decor-white')
+    } else if (color == 'white') {
+        decorContainer.classList.add('decor-white')
+        decorContainer.classList.remove('decor-black')
+    } else {
+        decorContainer.classList.add('decor-white')
+    }
 }
 
 function stopGame(username) {

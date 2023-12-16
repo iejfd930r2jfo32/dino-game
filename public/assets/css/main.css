@@ -7,6 +7,30 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.flash-decor {
+    animation: flash 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes flash {
+    from {
+        background-color: white;
+    }
+
+    to {
+        background-color: black;
+    }
+}
+
+.decor-black {
+    background-color: black !important;
+}
+
+.decor-white {
+    background-color: white !important;
+}
+
 .get-username {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     width: 100%;
@@ -169,7 +193,7 @@ body {
         background-image: url('../img/pterodactyl-down.png');
     }
     100% {
-        background-image: url('../img/Pterodactyl.png');
+        background-image: url('../img/bird2.png');
     }
 }
 
