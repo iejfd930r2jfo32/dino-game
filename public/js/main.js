@@ -273,14 +273,16 @@ function startAgain(username) {
             <div><img src='./public/assets/img/reset.png' alt='restart'></div>
         `
         decorContainer.appendChild(div)
-        let divInHTML = document.getElementsByClassName('start-again').item(0)
 
-        divInHTML.addEventListener('click', function() {
-            document.body.innerHTML = '';
-            intervalsArray.forEach((interval) => {
-                clearInterval(interval)
-            })
-            game(username)
+        document.addEventListener('keydown', function startAgainKeyDownEvent(e) {
+            if (e.code == 'Space' || e.key == 'ArrowUp') {
+                document.body.innerHTML = '';
+                intervalsArray.forEach((interval) => {
+                    clearInterval(interval)
+                })
+                document.removeEventListener('keydown', startAgainKeyDownEvent)
+                game(username)
+            }
         })
     }
 
