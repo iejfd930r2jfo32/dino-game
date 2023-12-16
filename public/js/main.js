@@ -250,7 +250,7 @@ function displaySavedScores() {
 
     let savedScoresContent = document.getElementsByClassName('saved-scores-content').item(0)
     let savedScores = localStorage.getItem('scores')
-    if (savedScores != []) {
+    if (savedScores != null) {
         scoresArray = JSON.parse(savedScores)
         scoresArray.sort((a, b) => b.score - a.score);
         scoresArray = scoresArray.slice(0, 5)
